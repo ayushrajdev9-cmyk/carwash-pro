@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarWash Pro - Premium Car Care Services</title>
+    <title>CarWash Pro - Premium Car Care</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/mini.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
+        <nav class="navbar glass">
             <div class="logo">
                 <i class="fas fa-car-side"></i>
                 <span>CarWash Pro</span>
@@ -31,11 +31,29 @@
 
     <section class="hero">
         <div class="hero-content">
+            <div class="hero-badge glass-light">
+                <i class="fas fa-circle"></i>
+                Available Now
+            </div>
             <h1>Premium <span class="highlight">Car Wash</span> Services</h1>
-            <p>Get your vehicle sparkling clean with professional detailing and wash packages. Fast, reliable, and affordable.</p>
+            <p>Professional detailing and cleaning for your vehicle. Fast, reliable, and affordable.</p>
             <div class="hero-buttons">
                 <a href="#booking" class="btn btn-primary large">Schedule Service</a>
-                <a href="#services" class="btn btn-outline">View Packages</a>
+                <a href="#services" class="btn btn-outline large">View Packages</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Cars Washed</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4.9</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Service</span>
+                </div>
             </div>
         </div>
         <div class="hero-image">
@@ -50,34 +68,34 @@
     </section>
 
     <main>
-        <section class="services" id="services">
+        <section class="services glass-light" id="services">
             <div class="section-header">
                 <h2>Our <span>Services</span></h2>
-                <p>Choose from our premium car wash and detailing packages</p>
+                <p>Premium car wash and detailing packages</p>
             </div>
             <div class="services-grid">
-                <div class="service-card basic">
+                <div class="service-card">
                     <div class="service-icon"><i class="fas fa-tint"></i></div>
                     <h3>Basic Wash</h3>
                     <p>Exterior wash, wheel cleaning, and tire shine</p>
-                    <span class="price">₹299</span>
+                    <span class="price">₹299 <small>/ session</small></span>
                 </div>
-                <div class="service-card premium">
+                <div class="service-card">
                     <div class="service-icon"><i class="fas fa-star"></i></div>
                     <h3>Premium Detailing</h3>
                     <p>Full exterior wash, interior vacuum, dashboard cleaning, and wax</p>
-                    <span class="price">₹799</span>
+                    <span class="price">₹799 <small>/ session</small></span>
                 </div>
-                <div class="service-card deluxe">
+                <div class="service-card">
                     <div class="service-icon"><i class="fas fa-gem"></i></div>
                     <h3>Deluxe Complete</h3>
-                    <p>Everything in Premium + engine bay cleaning, glass treatment, and odor elimination</p>
-                    <span class="price">₹1,499</span>
+                    <p>Everything in Premium + engine bay cleaning, glass treatment, odor elimination</p>
+                    <span class="price">₹1,499 <small>/ session</small></span>
                 </div>
             </div>
         </section>
 
-        <section class="booking" id="booking">
+        <section class="booking glass-light" id="booking">
             <div class="booking-container">
                 <div class="booking-form">
                     <h2>Schedule Your Car Wash</h2>
@@ -116,11 +134,9 @@
                         </div>
                         <button type="submit" class="btn btn-primary full-width">Confirm Booking</button>
                     </form>
-                    <div class="booking-info">
+                    <div class="booking-info glass-primary">
                         <i class="fas fa-check-circle"></i>
-                        <span>Instant confirmation</span>
-                        <br>
-                        <span>24/7 Service available</span>
+                        <span>Instant confirmation • 24/7 Service available</span>
                     </div>
                 </div>
                 <div class="booking-image">
@@ -135,18 +151,19 @@
         <section class="about" id="about">
             <div class="section-header">
                 <h2>About <span>Us</span></h2>
-                <p>Trusted car care specialists since 2024</p>
+                <p>Trusted car care specialists</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
                     <h3>Why Choose CarWash Pro?</h3>
-                    <p>At CarWash Pro, we're passionate about vehicles and dedicated to providing the best car care experience. Our team of skilled technicians uses only premium-grade cleaning products and state-of-the-art equipment to ensure your vehicle receives the finest treatment.</p>
+                    <p>We're passionate about vehicles and dedicated to providing the best car care experience. Our skilled technicians use premium-grade cleaning products and state-of-the-art equipment to ensure your vehicle receives the finest treatment.</p>
                     <ul class="about-features">
                         <li><i class="fas fa-check-circle"></i> Eco-friendly cleaning solutions</li>
                         <li><i class="fas fa-check-circle"></i> Quick turnaround time</li>
                         <li><i class="fas fa-check-circle"></i> Competitive pricing</li>
                         <li><i class="fas fa-check-circle"></i> Fully insured service</li>
                         <li><i class="fas fa-check-circle"></i> Customer satisfaction guaranteed</li>
+                        <li><i class="fas fa-check-circle"></i> Premium-grade products</li>
                     </ul>
                 </div>
                 <div class="about-image">
@@ -161,10 +178,10 @@
             </div>
         </section>
 
-        <section class="testimonials">
+        <section class="testimonials glass-light">
             <div class="section-header">
                 <h2>What <span>Clients</span> Say</h2>
-                <p>Trusted by car owners across Obi Road</p>
+                <p>Trusted by car owners across the city</p>
             </div>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
@@ -198,7 +215,7 @@
                     <i class="fas fa-car-side"></i>
                     <span>CarWash Pro</span>
                 </div>
-                <p>Premium car cleaning services in Obi Road. Your vehicle deserves the best care.</p>
+                <p>Premium car cleaning services. Your vehicle deserves the best care.</p>
                 <div class="social-links">
                     <a href="https://wa.me/+916266043117" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -237,6 +254,27 @@
             <p>© 2026 CarWash Pro. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="payment-screen">
+        <div class="payment-modal">
+            <h2>Payment Required</h2>
+            <p class="ticket-id" id="ticket-id">Ticket ID: CW-XXXX</p>
+            <div class="payment-details" id="payment-details"></div>
+            <div class="payment-amount" id="payment-amount">₹0</div>
+            <div class="qr-section">
+                <h3>Scan QR Code to Pay</h3>
+                <div class="qr-code">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=CarWashPro" alt="QR Code">
+                </div>
+                <p class="upi-info">Or pay via UPI: <code>carwashpro@upi</code></p>
+            </div>
+            <div class="payment-status-msg" id="payment-status-msg" style="display:none;"></div>
+            <div class="payment-buttons">
+                <button class="btn btn-primary" onclick="checkPaymentStatus()">Check Status</button>
+                <button class="btn btn-outline" onclick="closePayment()">Close</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
