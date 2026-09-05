@@ -1,15 +1,79 @@
 document.addEventListener('DOMContentLoaded', function() {
     const washForm = document.getElementById('washForm');
-    const navbar = document.querySelector('.navbar');
+    
+    // Mobile navigation toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '76px';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'var(--bg-surface)';
+                navLinks.style.padding = '1.5rem';
+                navLinks.style.borderBottom = '1px solid var(--border-subtle)';
+            }
+        });
+    }
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+    // Set default datetime to tomorrow at 10:00 AM
+    const datetimeInput = document.querySelector('input[name="datetime"]');
+    if (datetimeInput) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(10, 0, 0, 0);
+        datetimeInput.value = tomorrow.toISOString().slice(0, 16);
+    }
+
+    // Initial price calculation
+    window.updateStudioPrice = function() {
+        const service = document.getElementById('serviceSelect').value;
+        const vehicle = document.getElementById('vehicleSelect').value;
+        const addonEngine = document.getElementById('addonEngine').checked;
+        const addonOzone = document.getElementById('addonOzone').checked;
+
+        let basePrice = 0;
+        let pkgName = 'Not Selected';
+
+        if (service === 'basic') { basePrice = 299; pkgName = 'Basic Wash'; }
+        else if (service === 'premium') { basePrice = 799; pkgName = 'Premium Detailing'; }
+        else if (service === 'deluxe') { basePrice = 1499; pkgName = 'Deluxe Complete'; }
+
+        let vehicleMultiplier = 1;
+        let vehicleName = 'Standard';
+        if (vehicle === 'hatchback') { vehicleName = 'Hatchback (Compact)'; vehicleMultiplier = 1; }
+        else if (vehicle === 'sedan') { vehicleName = 'Sedan (Standard)'; vehicleMultiplier = 1.1; }
+        else if (vehicle === 'suv') { vehicleName = 'SUV / MUV (Large)'; vehicleMultiplier = 1.25; }
+        else if (vehicle === 'luxury') { vehicleName = 'Luxury / Exotic'; vehicleMultiplier = 1.5; basePrice += 200; }
+
+        let calculatedPrice = Math.round(basePrice * vehicleMultiplier);
+        let addonsTotal = 0;
+        let addonsList = [];
+
+        if (addonEngine) { addonsTotal += 300; addonsList.push('Engine Degrease'); }
+        if (addonOzone) { addonsTotal += 250; addonsList.push('Ozone Sanitization'); }
+
+        const finalTotal = calculatedPrice + addonsTotal;
+
+        // Update Summary UI
+        document.getElementById('sumPkg').textContent = pkgName;
+        document.getElementById('sumVehicle').textContent = vehicleName;
+        document.getElementById('sumAddons').textContent = addonsList.length > 0 ? addonsList.join(', ') : 'None';
+        document.getElementById('sumTotal').textContent = '₹' + finalTotal;
+    };
+
+    window.selectPkg = function(pkgKey) {
+        const select = document.getElementById('serviceSelect');
+        if (select) {
+            select.value = pkgKey;
+            updateStudioPrice();
         }
-    });
+    };
 
     // Form submission
     if (washForm) {
@@ -21,15 +85,25 @@ document.addEventListener('DOMContentLoaded', function() {
             const datetime = formData.get('datetime');
             const phone = formData.get('phone');
             const email = formData.get('email');
+            const location = formData.get('location');
 
             if (!service || !vehicle || !datetime || !phone || !email) {
-                showError('Please fill in all fields');
+                alert('Please fill in all required booking parameters.');
                 return;
             }
 
-            const bookingId = 'CW-' + Math.random().toString(36).substr(2, 8).toUpperCase();
+            const bookingId = 'CW-' + Math.floor(100000 + Math.random() * 900000);
+            const totalAmount = document.getElementById('sumTotal').textContent;
+
             const ticket = {
-                id: bookingId, service, vehicle, datetime, phone, email,
+                id: bookingId,
+                service,
+                vehicle,
+                datetime,
+                phone,
+                email,
+                location,
+                total: totalAmount,
                 status: 'pending_payment',
                 created: new Date().toISOString()
             };
@@ -46,54 +120,63 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function showPaymentScreen(ticket) {
-        document.getElementById('ticket-id').textContent = 'Ticket ID: ' + ticket.id;
+        document.getElementById('ticket-id-display').textContent = ticket.id;
+        document.getElementById('payment-amount').textContent = ticket.total;
+        
         document.getElementById('payment-details').innerHTML = `
-            <p><strong>Service:</strong> ${ticket.service}</p>
-            <p><strong>Vehicle:</strong> ${ticket.vehicle}</p>
-            <p><strong>Date & Time:</strong> ${formatDateTime(ticket.datetime)}</p>
-            <p><strong>Contact:</strong> ${ticket.phone}</p>
+            <div class="tm-item">
+                <span class="tm-lbl">Service Package</span>
+                <span class="tm-val">${ticket.service.toUpperCase()}</span>
+            </div>
+            <div class="tm-item">
+                <span class="tm-lbl">Vehicle Architecture</span>
+                <span class="tm-val">${ticket.vehicle.toUpperCase()}</span>
+            </div>
+            <div class="tm-item">
+                <span class="tm-lbl">Hub Location</span>
+                <span class="tm-val">${ticket.location.toUpperCase()}</span>
+            </div>
+            <div class="tm-item">
+                <span class="tm-lbl">Appointment Slot</span>
+                <span class="tm-val">${formatDateTime(ticket.datetime)}</span>
+            </div>
         `;
-        document.getElementById('payment-amount').textContent = '₹' + getPrice(ticket.service);
+
+        // Generate dynamic QR code URL with UPI payload
+        const upiData = `upi://pay?pa=carwashpro@upi&pn=CarWashPro%20Obedullaganj&am=${ticket.total.replace('₹','')}&tr=${ticket.id}&cu=INR`;
+        document.getElementById('ticket-qr-img').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiData)}`;
+
+        // WhatsApp dispatch link
+        const waMsg = `*New Booking Ticket - CarWash Pro*%0A*Ticket ID:* ${ticket.id}%0A*Package:* ${ticket.service.toUpperCase()}%0A*Vehicle:* ${ticket.vehicle.toUpperCase()}%0A*Location:* ${ticket.location}%0A*Amount:* ${ticket.total}%0A*Phone:* ${ticket.phone}`;
+        document.getElementById('whatsapp-dispatch-btn').href = `https://wa.me/+916266043117?text=${waMsg}`;
+
         document.getElementById('payment-status-msg').style.display = 'none';
         document.getElementById('payment-screen').classList.add('active');
     }
 
     function formatDateTime(datetime) {
         const date = new Date(datetime);
-        return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) + ' at ' + date.toLocaleTimeString('en-IN', { hour: 'numeric', minute: 'numeric' });
-    }
-
-    function getPrice(service) {
-        const prices = { 'basic': 299, 'premium': 799, 'deluxe': 1499 };
-        return prices[service] || 0;
+        return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) + ' @ ' + date.toLocaleTimeString('en-IN', { hour: 'numeric', minute: 'numeric' });
     }
 
     window.checkPaymentStatus = function() {
         const msg = document.getElementById('payment-status-msg');
         msg.style.display = 'block';
-        msg.className = 'payment-status-msg';
-        msg.textContent = 'Checking payment status...';
+        msg.className = 'payment-status-box';
+        msg.textContent = 'Verifying UPI Gateway settlement...';
 
         setTimeout(() => {
-            msg.className = 'payment-status-msg success';
-            msg.innerHTML = '<i class="fas fa-check-circle"></i> Payment Received - Booking Confirmed!';
-            setTimeout(() => { closePayment(); location.reload(); }, 2000);
+            msg.className = 'payment-status-box success';
+            msg.innerHTML = '<i class="fas fa-check-circle"></i> Settlement Verified! Ticket Confirmed.';
+            setTimeout(() => {
+                closePayment();
+                alert('Booking successfully confirmed & registered in Obedullaganj hub queue.');
+                location.reload();
+            }, 1800);
         }, 1500);
     };
 
     window.closePayment = function() {
         document.getElementById('payment-screen').classList.remove('active');
     };
-
-    function showError(message) {
-        const errorDiv = document.createElement('div');
-        errorDiv.style.cssText = `
-            background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #ef4444;
-            padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;
-            font-size: 0.9rem; backdrop-filter: blur(10px);
-        `;
-        errorDiv.innerHTML = '<i class="fas fa-exclamation-circle"></i> ' + message;
-        washForm.insertBefore(errorDiv, washForm.querySelector('button'));
-        setTimeout(() => errorDiv.remove(), 3000);
-    }
 });
