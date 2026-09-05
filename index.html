@@ -1,545 +1,111 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CarWash Pro — Enterprise Automotive Detailing & Care</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarWash Pro — Premium Car Wash & Detailing Obedullaganj</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Top Bar Notice -->
-    <div class="top-announcement">
-        <div class="container announcement-content">
-            <span class="badge-pill">v2.4 Live</span>
-            <span>Now serving Obedullaganj with mobile waterless steam units & instant UPI ticketing.</span>
-            <a href="https://wa.me/+916266043117" target="_blank" class="announcement-link">Connect via WhatsApp <i class="fas fa-arrow-right"></i></a>
-        </div>
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="container">
+      <a href="#" class="logo">CarWash<span>Pro</span></a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#booking">Book</a>
+        <a href="#about">About</a>
+      </nav>
+      <a href="https://wa.me/916266043117" class="btn btn-outline btn-sm">+91 62660 43117</a>
     </div>
+  </header>
 
-    <!-- Navbar -->
-    <header class="header">
-        <nav class="navbar container">
-            <a href="#" class="logo">
-                <div class="logo-mark"><i class="fas fa-shield-halved"></i></div>
-                <div class="logo-text">CarWash<span>Pro</span></div>
-            </a>
-            
-            <div class="nav-links" id="navLinks">
-                <a href="#services">Packages</a>
-                <a href="#matrix">Spec Matrix</a>
-                <a href="#studio" class="nav-highlight">Booking Studio</a>
-                <a href="#workflow">Workflow</a>
-                <a href="#about">Standard</a>
-            </div>
-
-            <div class="nav-actions">
-                <a href="https://wa.me/+916266043117" target="_blank" class="btn btn-subtle phone-chip">
-                    <i class="fab fa-whatsapp"></i> +91 62660 43117
-                </a>
-                <a href="#studio" class="btn btn-primary">Initialize Booking</a>
-                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <div class="badge-group">
-                        <span class="status-dot"></span>
-                        <span>Autonomous Scheduling Engine &bull; Obi & Obedullaganj Hub</span>
-                    </div>
-                    <h1>Precision automotive care, <span class="text-gradient">engineered for perfection.</span></h1>
-                    <p class="hero-desc">
-                        Deploy enterprise-grade exterior foam baths, pH-neutral contact washes, and interior thermal sanitization with instantaneous ticket generation and automated UPI settlement.
-                    </p>
-                    <div class="hero-cta-group">
-                        <a href="#studio" class="btn btn-primary btn-lg">
-                            <span>Configure & Book</span>
-                            <i class="fas fa-chevron-right"></i>
-                        </a>
-                        <a href="#services" class="btn btn-outline btn-lg">
-                            <span>Explore Matrix</span>
-                        </a>
-                    </div>
-                    <div class="hero-metrics">
-                        <div class="metric-item">
-                            <span class="metric-val">100%</span>
-                            <span class="metric-lbl">Scratch-Free Guarantee</span>
-                        </div>
-                        <div class="metric-divider"></div>
-                        <div class="metric-item">
-                            <span class="metric-val">&lt; 45m</span>
-                            <span class="metric-lbl">Turnaround SLA</span>
-                        </div>
-                        <div class="metric-divider"></div>
-                        <div class="metric-item">
-                            <span class="metric-val">₹299</span>
-                            <span class="metric-lbl">Base Entry Rate</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="hero-preview">
-                    <div class="terminal-card">
-                        <div class="terminal-header">
-                            <div class="terminal-dots">
-                                <span class="dot red"></span>
-                                <span class="dot yellow"></span>
-                                <span class="dot green"></span>
-                            </div>
-                            <div class="terminal-title">wash_daemon.sh — active session</div>
-                        </div>
-                        <div class="terminal-body">
-                            <div class="code-line"><span class="code-prompt">$</span> carwash-cli init --location="Obedullaganj"</div>
-                            <div class="code-line muted">&gt; Connecting to bay sensors... OK</div>
-                            <div class="code-line muted">&gt; PH-neutral snow foam calibrated: 6.8 pH</div>
-                            <div class="code-line muted">&gt; Microfiber GSM verification: 1200 GSM plush</div>
-                            <div class="code-line success">&gt; Status: READY FOR SCHEDULING</div>
-                            <div class="terminal-interactive-box">
-                                <div class="ti-row">
-                                    <span>Selected Hub:</span>
-                                    <strong class="text-accent">Obedullaganj Central</strong>
-                                </div>
-                                <div class="ti-row">
-                                    <span>Active Protocol:</span>
-                                    <strong>Ceramic Shield Hydro-Coat</strong>
-                                </div>
-                                <div class="ti-row">
-                                    <span>Secure WhatsApp API:</span>
-                                    <strong class="mono">+91 62660 43117</strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services / Packages -->
-        <section class="section" id="services">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Deployment Packages</h2>
-                    <p>Select the precise tier calibrated for your vehicle architecture and environmental exposure.</p>
-                </div>
-
-                <div class="packages-grid">
-                    <div class="pkg-card">
-                        <div class="pkg-header">
-                            <div class="pkg-tag">Express Protocol</div>
-                            <h3>Basic Wash</h3>
-                            <p>Essential exterior cleansing and protective tire treatment.</p>
-                        </div>
-                        <div class="pkg-price">
-                            <span class="currency">₹</span>299<span class="duration">/ wash</span>
-                        </div>
-                        <ul class="pkg-specs">
-                            <li><i class="fas fa-check"></i> High-pressure pre-rinse wash</li>
-                            <li><i class="fas fa-check"></i> pH-balanced snow foam bath</li>
-                            <li><i class="fas fa-check"></i> Microfiber hand drying</li>
-                            <li><i class="fas fa-check"></i> Alloy wheel rim cleansing</li>
-                            <li><i class="fas fa-check"></i> High-gloss tire dressing</li>
-                        </ul>
-                        <a href="#studio" class="btn btn-outline btn-full" onclick="selectPkg('basic')">Deploy Basic</a>
-                    </div>
-
-                    <div class="pkg-card featured">
-                        <div class="pkg-badge">Most Popular</div>
-                        <div class="pkg-header">
-                            <div class="pkg-tag">Standard Detailing</div>
-                            <h3>Premium Detailing</h3>
-                            <p>Comprehensive interior sanitization and exterior paint rejuvenation.</p>
-                        </div>
-                        <div class="pkg-price">
-                            <span class="currency">₹</span>799<span class="duration">/ session</span>
-                        </div>
-                        <ul class="pkg-specs">
-                            <li><i class="fas fa-check"></i> Everything in Basic Wash</li>
-                            <li><i class="fas fa-check"></i> Interior cabin deep vacuuming</li>
-                            <li><i class="fas fa-check"></i> Dashboard & console anti-static wipe</li>
-                            <li><i class="fas fa-check"></i> Door jamb and sill steam cleaning</li>
-                            <li><i class="fas fa-check"></i> Carnauba hand wax paint protection</li>
-                            <li><i class="fas fa-check"></i> Glass clarity treatment</li>
-                        </ul>
-                        <a href="#studio" class="btn btn-primary btn-full" onclick="selectPkg('premium')">Deploy Premium</a>
-                    </div>
-
-                    <div class="pkg-card">
-                        <div class="pkg-header">
-                            <div class="pkg-tag">Enterprise Grade</div>
-                            <h3>Deluxe Complete</h3>
-                            <p>Total mechanical restoration, engine bay detail, and odor extraction.</p>
-                        </div>
-                        <div class="pkg-price">
-                            <span class="currency">₹</span>1499<span class="duration">/ overhaul</span>
-                        </div>
-                        <ul class="pkg-specs">
-                            <li><i class="fas fa-check"></i> Everything in Premium Detailing</li>
-                            <li><i class="fas fa-check"></i> Engine bay degreasing & dressing</li>
-                            <li><i class="fas fa-check"></i> Leather conditioning & UV block</li>
-                            <li><i class="fas fa-check"></i> Ozone chamber odor elimination</li>
-                            <li><i class="fas fa-check"></i> Ceramic spray sealant topcoat</li>
-                            <li><i class="fas fa-check"></i> Priority queue & WhatsApp live feed</li>
-                        </ul>
-                        <a href="#studio" class="btn btn-outline btn-full" onclick="selectPkg('deluxe')">Deploy Deluxe</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Spec Matrix (Feature Comparison) -->
-        <section class="section matrix-section" id="matrix">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Technical Spec Matrix</h2>
-                    <p>Granular breakdown of chemical formulations, water filtration standards, and hardware specifications.</p>
-                </div>
-
-                <div class="matrix-table-wrapper">
-                    <table class="matrix-table">
-                        <thead>
-                            <tr>
-                                <th>Feature Specification</th>
-                                <th>Basic Wash</th>
-                                <th>Premium Detailing</th>
-                                <th>Deluxe Complete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Water Filtration</td>
-                                <td>RO Softened Water</td>
-                                <td>Deionized Spotless Water</td>
-                                <td>Triple-Filtered UV Pure Water</td>
-                            </tr>
-                            <tr>
-                                <td>Foam Chemistry</td>
-                                <td>Biodegradable Shampoo</td>
-                                <td>pH-Neutral Snow Foam</td>
-                                <td>Ceramic Infused Polymer Foam</td>
-                            </tr>
-                            <tr>
-                                <td>Drying Method</td>
-                                <td>Waffle Weave Towel</td>
-                                <td>Filtered Warm Air Blast</td>
-                                <td>Touchless Air Cannon + Plush GSM</td>
-                            </tr>
-                            <tr>
-                                <td>Interior Treatment</td>
-                                <td>Surface Dusting</td>
-                                <td>Vacuum + Antibacterial Wipe</td>
-                                <td>Hot Water Extraction + Steam</td>
-                            </tr>
-                            <tr>
-                                <td>Paint Protection</td>
-                                <td>None</td>
-                                <td>Carnauba Wax Sealant</td>
-                                <td>Hydrophobic Ceramic Coating</td>
-                            </tr>
-                            <tr>
-                                <td>WhatsApp Support</td>
-                                <td>Standard</td>
-                                <td>Priority Channel</td>
-                                <td>Dedicated Technician Live Feed</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive Booking Studio -->
-        <section class="section studio-section" id="studio">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Interactive Booking Studio</h2>
-                    <p>Configure your vehicle specs, pick a time slot, and initialize instant UPI ticketing.</p>
-                </div>
-
-                <div class="studio-wrapper">
-                    <div class="studio-form-container">
-                        <form id="washForm" class="studio-form">
-                            <div class="form-step-title"><span>01</span> Choose Service Protocol</div>
-                            <div class="form-grid-2">
-                                <div class="form-group">
-                                    <label>Package Tier</label>
-                                    <select name="service" id="serviceSelect" required onchange="updateStudioPrice()">
-                                        <option value="">Select Package...</option>
-                                        <option value="basic">Basic Wash (₹299)</option>
-                                        <option value="premium">Premium Detailing (₹799)</option>
-                                        <option value="deluxe">Deluxe Complete (₹1,499)</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Vehicle Architecture</label>
-                                    <select name="vehicle" id="vehicleSelect" required onchange="updateStudioPrice()">
-                                        <option value="">Select Type...</option>
-                                        <option value="hatchback">Hatchback (Compact)</option>
-                                        <option value="sedan">Sedan (Standard)</option>
-                                        <option value="suv">SUV / MUV (Large)</option>
-                                        <option value="luxury">Luxury / Exotic (+₹200)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-step-title"><span>02</span> Schedule & Location</div>
-                            <div class="form-grid-2">
-                                <div class="form-group">
-                                    <label>Appointment Timestamp</label>
-                                    <input type="datetime-local" name="datetime" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Service Location Hub</label>
-                                    <select name="location" required>
-                                        <option value="obedullaganj">Obedullaganj Central Station</option>
-                                        <option value="obi">Obi Main Hub</option>
-                                        <option value="doorstep">Mobile Doorstep Service (Obedullaganj)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-step-title"><span>03</span> Contact & Verification</div>
-                            <div class="form-grid-2">
-                                <div class="form-group">
-                                    <label>WhatsApp / Phone Number</label>
-                                    <input type="tel" name="phone" placeholder="+91 62660 43117" value="+91 62660 43117" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input type="email" name="email" placeholder="client@domain.com" required>
-                                </div>
-                            </div>
-
-                            <div class="addon-checkboxes">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="addonEngine" value="300" onchange="updateStudioPrice()">
-                                    <span>Add Engine Bay Degreasing (+₹300)</span>
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="addonOzone" value="250" onchange="updateStudioPrice()">
-                                    <span>Add Ozone Interior Sanitization (+₹250)</span>
-                                </label>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-lg btn-full" style="margin-top: 1.5rem;">
-                                <i class="fas fa-ticket"></i> Generate Secure Ticket & Pay
-                            </button>
-                        </form>
-                    </div>
-
-                    <div class="studio-summary-card">
-                        <div class="summary-header">
-                            <h4>Session Telemetry</h4>
-                            <span class="status-badge live">Live Estimate</span>
-                        </div>
-                        <div class="summary-rows">
-                            <div class="s-row">
-                                <span>Selected Package:</span>
-                                <strong id="sumPkg">Not Selected</strong>
-                            </div>
-                            <div class="s-row">
-                                <span>Vehicle Profile:</span>
-                                <strong id="sumVehicle">Standard</strong>
-                            </div>
-                            <div class="s-row">
-                                <span>Hub Location:</span>
-                                <strong>Obedullaganj</strong>
-                            </div>
-                            <div class="s-row">
-                                <span>Add-ons:</span>
-                                <strong id="sumAddons">None</strong>
-                            </div>
-                            <div class="s-divider"></div>
-                            <div class="s-row total">
-                                <span>Total Settlement:</span>
-                                <span class="sum-price" id="sumTotal">₹0</span>
-                            </div>
-                        </div>
-                        <div class="summary-footer-note">
-                            <i class="fab fa-whatsapp"></i> Instant ticket dispatch directly to <span class="mono">+91 62660 43117</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Workflow / How it works -->
-        <section class="section" id="workflow">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Operational Workflow</h2>
-                    <p>Standardized 3-step pipeline designed for zero friction.</p>
-                </div>
-
-                <div class="workflow-grid">
-                    <div class="wf-card">
-                        <div class="wf-num">01</div>
-                        <h3>Configure & Schedule</h3>
-                        <p>Select your vehicle category, pick an open bay slot, and input your contact details for instant verification.</p>
-                    </div>
-                    <div class="wf-card">
-                        <div class="wf-num">02</div>
-                        <h3>Scan & Settle</h3>
-                        <p>Generate your cryptographic digital ticket and settle instantly via UPI QR code or direct gateway.</p>
-                    </div>
-                    <div class="wf-card">
-                        <div class="wf-num">03</div>
-                        <h3>Execute & Shine</h3>
-                        <p>Arrive at Obedullaganj hub or opt for doorstep service. Track real-time progress via WhatsApp alerts.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Trust & Standard (About) -->
-        <section class="section about-section" id="about">
-            <div class="container about-grid">
-                <div>
-                    <div class="badge-pill" style="margin-bottom: 1rem;">Enterprise Standard</div>
-                    <h2>Engineered for Obedullaganj & Beyond</h2>
-                    <p class="about-lead">
-                        CarWash Pro was built to eliminate the guesswork and substandard quality of roadside car washing. We treat every vehicle with calibrated chemical solutions and strictly audited equipment.
-                    </p>
-                    <div class="about-checklist">
-                        <div class="ac-item"><i class="fas fa-shield"></i> 100% Water recycling & eco-friendly runoff management</div>
-                        <div class="ac-item"><i class="fas fa-microchip"></i> Automated scheduling & ticket verification engine</div>
-                        <div class="ac-item"><i class="fas fa-headset"></i> Direct WhatsApp liaison: <a href="https://wa.me/+916266043117" target="_blank" class="text-accent">+91 62660 43117</a></div>
-                    </div>
-                </div>
-
-                <div class="stats-panel">
-                    <div class="sp-box">
-                        <div class="sp-num">15+</div>
-                        <div class="sp-lbl">Bay Sensors Active</div>
-                    </div>
-                    <div class="sp-box">
-                        <div class="sp-num">1200</div>
-                        <div class="sp-lbl">GSM Plush Towels</div>
-                    </div>
-                    <div class="sp-box">
-                        <div class="sp-num">6.8</div>
-                        <div class="sp-lbl">Calibrated Water pH</div>
-                    </div>
-                    <div class="sp-box">
-                        <div class="sp-num">4.9★</div>
-                        <div class="sp-lbl">Customer Satisfaction</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <div class="logo" style="margin-bottom: 1rem;">
-                    <div class="logo-mark"><i class="fas fa-shield-halved"></i></div>
-                    <div class="logo-text">CarWash<span>Pro</span></div>
-                </div>
-                <p>Enterprise automotive care and detailing hub serving Obedullaganj and surrounding sectors.</p>
-                <div class="footer-contact-info">
-                    <i class="fab fa-whatsapp"></i> <a href="https://wa.me/+916266043117" target="_blank">+91 62660 43117</a>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h4>Packages</h4>
-                <ul>
-                    <li><a href="#services">Basic Wash (₹299)</a></li>
-                    <li><a href="#services">Premium Detailing (₹799)</a></li>
-                    <li><a href="#services">Deluxe Complete (₹1499)</a></li>
-                    <li><a href="#matrix">Spec Matrix</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Operations</h4>
-                <ul>
-                    <li><a href="#studio">Booking Studio</a></li>
-                    <li><a href="#workflow">Workflow Pipeline</a></li>
-                    <li><a href="#about">Obedullaganj Hub</a></li>
-                    <li><a href="https://wa.me/+916266043117" target="_blank">WhatsApp Support</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Compliance</h4>
-                <ul>
-                    <li><a href="#">Privacy Protocol</a></li>
-                    <li><a href="#">Service Terms</a></li>
-                    <li><a href="#">SLA Guarantee</a></li>
-                    <li><a href="#">API Documentation</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container footer-bottom">
-            <p>&copy; 2026 CarWash Pro Inc. Obedullaganj, India. All rights reserved.</p>
-            <div class="footer-social">
-                <a href="https://wa.me/+916266043117" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Payment & Digital Ticket Modal -->
-    <div id="payment-screen" class="modal-overlay">
-        <div class="ticket-modal">
-            <div class="ticket-top-notch"></div>
-            <div class="ticket-header">
-                <div class="th-left">
-                    <span class="badge-pill">Verified Pass</span>
-                    <h2>Secure Digital Ticket</h2>
-                </div>
-                <button class="ticket-close" onclick="closePayment()"><i class="fas fa-xmark"></i></button>
-            </div>
-
-            <div class="ticket-body">
-                <div class="ticket-id-row">
-                    <span>Ticket Identifier:</span>
-                    <strong class="mono" id="ticket-id-display">CW-2026-X89</strong>
-                </div>
-
-                <div class="ticket-meta-grid" id="payment-details">
-                    <!-- Populated via JS -->
-                </div>
-
-                <div class="ticket-qr-section">
-                    <div class="qr-box">
-                        <img id="ticket-qr-img" src="" alt="UPI QR Code">
-                    </div>
-                    <div class="qr-instructions">
-                        <span>Scan with any UPI App (GPay, PhonePe, Paytm)</span>
-                        <code class="mono">carwashpro@upi</code>
-                        <span class="amount-highlight" id="payment-amount">₹0</span>
-                    </div>
-                </div>
-
-                <div id="payment-status-msg" class="payment-status-box" style="display:none;"></div>
-
-                <div class="ticket-actions">
-                    <button class="btn btn-primary btn-full" onclick="checkPaymentStatus()">
-                        <i class="fas fa-check-circle"></i> Verify UPI Settlement
-                    </button>
-                    <a id="whatsapp-dispatch-btn" href="#" target="_blank" class="btn btn-subtle btn-full" style="margin-top: 0.75rem; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;">
-                        <i class="fab fa-whatsapp"></i> Send Ticket to WhatsApp (+91 62660 43117)
-                    </a>
-                </div>
-            </div>
-        </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Professional Car Wash & Detailing</h1>
+      <p>Studio & doorstep service in Obedullaganj. Transparent pricing, premium finish.</p>
+      <div class="price">Starting at ₹299</div>
+      <a href="#booking" class="btn btn-primary btn-full">Book Your Wash</a>
     </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Services -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Basic Wash</h3>
+          <p class="price">₹299</p>
+          <p>Exterior wash, wheel cleaning, tire shine.</p>
+        </div>
+        <div class="service-card">
+          <h3>Premium Detailing</h3>
+          <p class="price">₹799</p>
+          <p>Full exterior + interior vacuum, wax, dashboard.</p>
+        </div>
+        <div class="service-card">
+          <h3>Deluxe Complete</h3>
+          <p class="price">₹1,499</p>
+          <p>Engine bay, leather care, ceramic sealant, odor removal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking" class="services">
+    <div class="container">
+      <h2>Book Your Wash</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Service</label>
+            <select required>
+              <option>-- Select --</option>
+              <option>Basic Wash (₹299)</option>
+              <option>Premium Detailing (₹799)</option>
+              <option>Deluxe Complete (₹1,499)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Vehicle Type</label>
+            <select required>
+              <option>-- Select --</option>
+              <option>Hatchback</option>
+              <option>Sedan</option>
+              <option>SUV</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date & Time</label>
+            <input type="datetime-local" required>
+          </div>
+          <div class="form-group">
+            <label>Contact (WhatsApp)</label>
+            <input type="tel" value="+91 62660 43117" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Confirm Booking</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- WhatsApp Sticky Bar -->
+  <div class="mobile-sticky">
+    <a href="https://wa.me/916266043117" class="btn wa-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="#booking" class="btn book-btn">Book Now (₹299)</a>
+  </div>
+
+  <footer id="about" class="services" style="background:#08090d;padding:2rem 0;">
+    <div class="container" style="color:#aaa;font-size:.85rem;">
+      <p>CarWash Pro Obedullaganj &bull; 2026 &bull; <a href="https://wa.me/916266043117">+91 62660 43117</a></p>
+    </div>
+  </footer>
+
 </body>
 </html>
